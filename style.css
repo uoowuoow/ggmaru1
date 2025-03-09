@@ -1,0 +1,407 @@
+/* ===================================
+   파스텔톤 베이지 스타일 (키오스크 대비 큰 폰트/버튼)
+   =================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+/* 전체 레이아웃: 배경을 연한 베이지 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Gowun Dodum", serif;  /*font-weight: 400;*/
+  font-style: normal;
+  background: #fcf9f4; /* 아주 연한 베이지톤 */
+  color: #5a5049;      /* 다소 짙은 갈색 계열 폰트 *//* 기기마다 해상도가 다를 수 있으므로 rem 단위 사용을 권장 */
+  font-size: 1.2rem; /* 기본 폰트 크기 조금 크게 */
+    /* ✅ flex 설정 추가 세로방향 가운데정렬 */
+  display: flex;
+  flex-direction: column; /* 세로 방향 정렬 */
+  justify-content: center; /* 🔥 세로 방향(위아래)에서 아래쪽 정렬 */
+  height: 100vh; /* 🔥 화면 높이 기준으로 꽉 채우기 */
+}
+
+/* 헤더와 푸터: 옅은 베이지 배경, 갈색 폰트 */
+header, footer {
+  background: #f5e7d9;  /* 베이지톤 */
+  color: #5a5049;
+  text-align: center;
+  padding: 1rem;
+  border-bottom: 2px solid #ebdcc9; /* 조금 진한 베이지로 구분선 */
+}
+
+footer {
+  border-bottom: none;
+  border-top: 2px solid #ebdcc9; /* 푸터 상단 경계선 */
+}
+
+/* 헤더 타이틀 크기 키우기 */
+header h1 {
+  font-size: 2rem;  /* 기존 1.xrem보다 크게 */
+  margin: 0;
+}
+
+/* 메인 컨테이너: 가운데 정렬 */
+main {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center; /* 메인 화면 문구 가운데 정렬 */
+}
+
+/* 메인 페이지 '게임 선택' 링크들 */
+.game-links {
+  display: grid; /* 2*2 그리드 형식 */
+  /* flex-direction: column; /* 버튼 세로 정렬 */
+  grid-template-columns: repeat(2, 1fr); /* 2열 */
+  grid-template-rows: repeat(2, auto);   /* 2행 (자동 높이) */
+  gap: 1rem;
+  margin-top: 2rem;
+  /* justify-content: center; /* 가운데 정렬 */
+  justify-items: center; /* 아이템 가로 정렬 */
+  align-items: center;   /* 아이템 세로 정렬 */
+}
+
+/* 메인 버튼 (OX 퀴즈) 크기 키우기 */
+.game-button {
+  background: #f0ddc2;
+  color: #5a5049;
+  padding: 2rem 3rem;  /* 패딩을 일정하게 설정 */
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  border: 5px solid #e1cda9;
+  font-size: 1.5rem; /* 글자 크기 설정 */
+  width: 200px; /* 고정 너비 */
+  height: 100px; /* 고정 높이 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+/* 호버 시 색 변경 */
+.game-button:hover {
+  background: #ebcd9f;
+}
+
+.game-button-2 {
+  background: #d4b896;
+  color: #3f2c21;
+  padding: 2rem 3rem;  /* 패딩을 일정하게 설정 */
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  border: 5px solid #b59b7c;
+  font-size: 1.5rem; /* 글자 크기 설정 */
+  width: 200px; /* 고정 너비 */
+  height: 100px; /* 고정 높이 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.game-button-2:hover {
+  background: #ebcd9f;
+}
+
+/* 난이도 선택 박스 */
+.difficulty-select-box {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* 난이도 선택 버튼 크기 키우기 */
+.diff-button {
+  background: #f0ddc2;
+  color: #5a5049;
+  padding: 1rem 2rem;
+  border: 2px solid #e1cda9;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  transition: background 0.3s;
+  font-size: 1.4rem; /* 난이도 버튼 글자 크게 */
+  font-family: "Gowun Dodum", serif;
+}
+
+.diff-button:hover {
+  background: #ebcd9f;
+}
+
+/* 퀴즈 메인 컨테이너 */
+.quiz-container {
+  background: #fffaf2; /* 조금 더 밝은 크림색 */
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  max-width: 90vw;
+  min-width: 600px;
+  /* min-width: 500px; 성적표 화면이랑 맞춰서 수정 필요할 수도 */
+}
+
+/* 문제 표시 박스 */
+.question-box {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* 문제 제목(질문) 글자 크기 키우기 */
+.question-box h2 {
+  font-size: 1.6rem;  /* 질문 문구 크게 */
+  text-align: left; /* 🔥 글자 왼쪽 정렬 */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* 버튼 그룹 (O / X) */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* O / X 버튼 크기 확대 */
+.ox-button {
+  background-color: #e9c9a3;
+  border: 2px solid #d7b48c;
+  color: #5a5049;
+  padding: 2rem 3rem; /* 1rem 1.5rem에서 수정 */ 
+  font-size: 1.5rem;  /* OX 글자 크기 */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-width: 80px; /* 버튼이 최소한 이 정도 너비로 표시되게 */
+}
+
+.ox-button:hover {
+  background-color: #dab286; /* 호버 시 좀 더 진해진 베이지 */
+}
+
+/* 모달 오버레이 (배경) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3); /* 어두운 투명 배경 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 모달 컨테이너 */
+.modal-content {
+  background: #fffdf7;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 80%;
+  text-align: center;
+  border: 2px solid #ebdcc9;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #b06c49; 
+  font-size: 1.6rem; /* 정답/오답 등 크게 */
+}
+
+#modalExplanation {
+  font-size: 1.2rem; /* 해설도 좀 크게 */
+  margin: 1rem 0;
+}
+
+#modalCloseBtn {
+  background: #e9c9a3;
+  color: #5a5049;
+  padding: 0.8rem 1.4rem;
+  border: 2px solid #d7b48c;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-family: "Gowun Dodum", serif;
+}
+
+#modalCloseBtn:hover {
+  background: #dab286;
+}
+
+/* 결과 표시 박스 (최종 점수) */
+.result-box {
+  text-align: center;
+  margin-top: 2rem;
+  /* 기존 베이스 스타일 + 성적표 느낌을 주기 위한 추가 */
+  border: 3px double #d7b48c;  /* 테두리를 약간 고급스럽게 double 형태로 */
+  padding: 2rem;
+  background: #fffaf2;         /* 연한 베이지 배경 (예시) */
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 2rem auto;           /* 가운데 정렬 */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* 제목 (성적표) */
+.result-box h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #b06c49; 
+}
+
+.result-box p {
+  font-size: 1.2rem;
+}
+
+/* 점수 표시 영역 */
+.score-display {
+  margin: 1rem 0;
+}
+
+.score-display p {
+  margin: 0.5rem 0;
+}
+
+/* 점수 텍스트를 크게 */
+.score-text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e74c3c; /* 진한 붉은 계열 예시 */
+}
+
+/* 추가 메시지 */
+.score-message {
+  font-size: 1.5rem;
+  color: #5a5049;
+  margin-top: 1rem;
+}
+
+/* 버튼 영역 */
+.button-area {
+  margin-top: 2rem;
+}
+
+.button-area button {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.2rem;
+  font-family: "Gowun Dodum", serif;
+  background: #e9c9a3;
+  border: 2px solid #d7b48c;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button-area button:hover {
+  background: #dab286;
+}
+
+/* 버튼 영역 '메인으로 돌아가기'*/
+.button-area-main {
+  margin-top: 0rem;
+}
+
+.button-area-main button {
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-family: "Gowun Dodum", serif;
+  background: #f0e0c1;
+  border: 2px solid #dac0a4;
+  color: #5a4032;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button-area-main button:hover {
+  background: #dab286;
+}
+
+/* 진행 바 컨테이너 */
+.progress-bar-container {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent; /* 그냥 배경 투명 */
+  height: 30px; /* 진행바 높이 */
+  border-radius: 15px; /* 모서리 둥글게 */
+  overflow: hidden;    /* 자식 박스가 둥글게 보이도록 */
+  display: none; /* 기본은 숨김, JS에서 show */
+}
+
+/* 실제 바 */
+.progress-bar {
+  height: 100%;
+  background-color: #e9c9a3; /* 베이지톤(조정 가능) */
+  width: 0%; /* JS로 동적으로 조정 */
+  display: flex;
+  align-items: center;      /* 텍스트 중앙정렬 */
+  justify-content: center;  /* 텍스트 가운데 정렬 */
+  transition: width 0.3s ease; /* 애니메이션 */
+}
+
+/* 바 안의 텍스트 (현재 문제수/전체 문제수) */
+.progress-text {
+  color: #5a5049;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* SNS 모달 오버레이 */
+.sns-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* SNS 모달 콘텐츠 박스 */
+.sns-modal-content {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 1000px; /* 가로 최대폭 조정 (기존 2000px → 1000px) */
+  width: 100vw; /* 넓이가 화면 크기에 비례해서 유연하게 확장축소 */
+  position: relative;
+  transform: scale(0.7);  /* 전체 내용 70%로 축소 */
+  /* transform-origin: 0 0;  왼쪽 상단 기준으로 축소 */
+  transform-origin: center;  /* 기준점을 가운데로 변경 */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* 모달에 그림자 추가 */
+  overflow: hidden;
+}
+
+/* SNS 모달 닫기 버튼 */
+.sns-modal-close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 4rem; /* 닫기 버튼 크기 조정 */
+  cursor: pointer;
+}
+
+.sns-button-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.sns-button-container button {
+  background-color: #f0e0c1;
+  color: #5a4032;
+  padding: 10px 15px;
+  border: 2px solid #dac0a4;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: "Gowun Dodum", serif;
+  cursor: pointer;  
+}
+
+.sns-button-container button:hover {
+  background-color: #d7b48c;
+}
