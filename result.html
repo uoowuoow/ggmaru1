@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결과 발표 - 경기도의회 상임위원회</title>
+    <!-- Google Fonts 링크 추가 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>결과 발표 🎉</h1>
+        <p>당신을 <strong id="committee-name"></strong>로 초대합니다.</p>
+        <!-- ✅ QR 코드 영역 -->
+        <div id="qr-code" style="margin-top: 20px;"></div>
+        <!-- ✅ 버튼을 감싸는 새로운 컨테이너 추가 -->
+        <div class="button-container-center">
+            <button class="main-btn" onclick="openModal()">상임위원회<br>더 알아보기</button>
+        </div>
+        <!-- ✅ 모달 창 (배경 클릭 가능) -->
+        <div id="imageModal" class="modal" onclick="closeModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation();">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img id="modalImage" src="" alt="상임위원회 사진">
+                <!-- ✅ 슬라이드 버튼을 가로로 정렬하기 위해 클래스 추가 -->
+                <div class="button-container-horizontal">
+                    <button class="slide-btn" onclick="prevImage()">이전</button>
+                    <button class="slide-btn" onclick="nextImage()">다음</button>
+                </div>
+            </div>
+        </div>
+        <!-- ✅ "다시 시작하기" 버튼에도 동일 적용 -->
+        <div class="button-container">
+            <button class="main-btn" onclick="location.href='index.html'">다시 시작하기</button>
+        </div>
+    </div>
+    
+
+    <script>
+        // ✅ 상임위원회별 URL 목록
+        const committeeURLs = {
+            "의회운영위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C001",
+            "기획재정위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C105",
+            "경제노동위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C205",
+            "안전행정위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C301",
+            "문화체육관광위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C501",
+            "농정해양위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C601",
+            "보건복지위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C701",
+            "건설교통위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C807",
+            "도시환경위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C901",
+            "미래과학협력위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C9043",
+            "여성가족평생교육위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C905",
+            "교육기획위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C908",
+            "교육행정위원회": "https://www.ggc.go.kr/site/cmt/home?divisionCommittee=standing&cmtCd=01&cmtNmCd=C909"
+        };
+
+        // ✅ 상임위원회별 이미지 목록
+        const committeeImageURLs = {
+            "의회운영위원회": [
+                    "image1-1.jpg",
+                    "image1-2.jpg",
+                    "image1-3.jpg"
+                ],
+                "기획재정위원회": [
+                    "image2-1.jpg",
+                    "image2-2.jpg",
+                    "image2-3.jpg"
+                ],
+                "경제노동위원회": [
+                    "image3-1.jpg",
+                    "image3-2.jpg",
+                    "image3-3.jpg"
+                ],
+                "안전행정위원회": [
+                    "image4-1.jpg",
+                    "image4-2.jpg",
+                    "image4-3.jpg"
+                ],
+                "문화체육관광위원회": [
+                    "image5-1.jpg",
+                    "image5-2.jpg",
+                    "image5-3.jpg"
+                ],
+                "농정해양위원회": [
+                    "image6-1.jpg",
+                    "image6-2.jpg",
+                    "image6-3.jpg"
+                ],
+                "보건복지위원회": [
+                    "image7-1.jpg",
+                    "image7-2.jpg",
+                    "image7-3.jpg"
+                ],
+                "건설교통위원회": [
+                    "image8-1.jpg",
+                    "image8-2.jpg",
+                    "image8-3.jpg"
+                ],
+                "도시환경위원회": [
+                    "image9-1.jpg",
+                    "image9-2.jpg",
+                    "image9-3.jpg"
+                ],
+                "미래과학협력위원회": [
+                    "image10-1.jpg",
+                    "image10-2.jpg",
+                    "image10-3.jpg"
+                ],
+                "여성가족평생교육위원회": [
+                    "image11-1.jpg",
+                    "image11-2.jpg",
+                    "image11-3.jpg"
+                ],
+                "교육기획위원회": [
+                    "image12-1.jpg",
+                    "image12-2.jpg",
+                    "image12-3.jpg"
+                ],
+                "교육행정위원회": [
+                    "image13-1.jpg",
+                    "image13-2.jpg",
+                    "image13-3.jpg"
+                ],
+            };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const committee = urlParams.get('committee');
+        const committeeNameElement = document.getElementById("committee-name");
+        const qrCodeContainer = document.getElementById('qr-code');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        let currentImageIndex = 0;
+        let currentCommitteeImages = [];
+
+        if (committee && committeeURLs[committee]) {
+            committeeNameElement.textContent = committee;
+
+            // ✅ QR 코드 생성
+            const committeeURL = committeeURLs[committee];
+            const qrCodeURL = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(committeeURL)}`;
+            qrCodeContainer.innerHTML = `<img src="${qrCodeURL}" alt="QR Code for ${committee}">`;
+
+            // ✅ 이미지 슬라이드 데이터 준비
+            currentCommitteeImages = committeeImageURLs[committee] || [];
+        } else {
+            committeeNameElement.textContent = "결과를 불러올 수 없습니다.";
+            qrCodeContainer.innerHTML = `<p style="color: red;">QR 코드를 생성할 수 없습니다.</p>`;
+        }
+
+        // ✅ 모달 열기 함수
+        function openModal() {
+            if (currentCommitteeImages.length > 0) {
+                modal.style.display = "flex";
+                modalImage.src = currentCommitteeImages[currentImageIndex];
+            } else {
+                alert("이미지가 없습니다.");
+            }
+        }
+
+        // ✅ 모달 닫기 (배경 클릭 포함)
+        function closeModal(event) {
+            // 배경을 클릭했을 때만 모달 닫기
+            if (!event || event.target.classList.contains('modal')) {
+                modal.style.display = "none";
+            }
+        }
+
+        // ✅ 기존 close 버튼 기능 유지
+        function closeButton() {
+            modal.style.display = "none";
+        }
+
+        // ✅ 이전 이미지 보기
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + currentCommitteeImages.length) % currentCommitteeImages.length;
+            modalImage.src = currentCommitteeImages[currentImageIndex];
+        }
+
+        // ✅ 다음 이미지 보기
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % currentCommitteeImages.length;
+            modalImage.src = currentCommitteeImages[currentImageIndex];
+        }
+    </script>
+</body>
+</html>
