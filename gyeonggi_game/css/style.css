@@ -1,0 +1,310 @@
+/* ✅ Google Fonts 'Poor Story' 적용 -> 'Gowun Dodum' */
+body {
+    font-family: "Gowun Dodum", serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f0e3; /* ✅ 부드러운 베이지 배경 */
+    color: #6f4f31; /* ✅ 어두운 베이지 텍스트 색상 */
+    text-align: center;
+    overflow-x: hidden; /* ✅ 수평 스크롤 제거 */
+        /* ✅ flex 설정 추가 세로방향 가운데정렬 */
+    display: flex;
+    flex-direction: column; /* 세로 방향 정렬 */
+    justify-content: center; /* 🔥 세로 방향(위아래)에서 아래쪽 정렬 */
+    height: 100vh; /* 🔥 화면 높이 기준으로 꽉 채우기 */
+}
+
+/* ✅ 컨테이너 크기 확장 */
+.container {
+    max-width: 90vw;   /* ✅ 너비 확장 800px -> 90vw */
+    padding: 30px;   /* 20 에서 늘림 */
+    border: 2px solid #d1b8a1; /* ✅ 부드러운 베이지 테두리 */
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(210, 184, 161, 0.8); /* ✅ 부드러운 그림자 */
+    margin: 0 auto; /* ✅ 완벽한 가운데 정렬 */
+    background: #fff8f1; /* ✅ 연한 크림색 배경 */
+    text-align: center;
+}
+
+/* ✅ 타이틀 크기 유지 (줄바꿈 방지) */
+h1 {
+    font-size: 2rem;
+    white-space: nowrap;  /* ✅ 줄바꿈 방지 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ab8e72; /* ✅ 따뜻한 베이지 색상 */
+    text-shadow: 0 0 10px #c2ad99; /* ✅ 부드러운 텍스트 그림자 */
+}
+
+/* ✅ 설명 텍스트 조정 */
+p {
+    font-size: 1.5rem; /* 1.2rem에서 수정 */
+    margin-top: 10px;
+    line-height: 1.5;
+    color: #6f4f31; /* ✅ 텍스트 색상 조정 */
+}
+
+/* ✅ 게임 시작하기 버튼 조정 */ /* ✅ 메인 버튼 (게임 시작하기와 동일한 스타일) */
+#start-button, .main-btn {
+    background: #f1d3b2; /* ✅ 파스텔 핑크 배경 */
+    color: #6f4f31; /* ✅ 어두운 베이지 텍스트 */
+    border: 2px solid #d1b8a1; /* ✅ 부드러운 테두리 */
+    border-radius: 20px;
+    padding: 10px 20px;         /* ✅ 패딩을 줄여서 텍스트 크기와 맞춤 */
+    font-size: 1.5rem;          /* ✅ 글자 크기 조절 */
+    line-height: 1.2;           /* ✅ 텍스트 수직 중앙 정렬 */
+    box-sizing: border-box;     /* ✅ 패딩 포함 크기 고정 */
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(210, 184, 161, 0.9); /* ✅ 베이지 톤 그림자 */
+    transition: all 0.3s ease-in-out;
+    width: 220px;               /* ✅ 고정 너비 설정 */
+    height: 70px;               /* ✅ 고정 높이 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* ✅ 호버 효과 유지 */
+#start-button:hover, .main-btn {
+    background: #e1c7a4; /* ✅ 클릭 시 더 밝은 색상으로 변경 */
+    color: #fff;
+    border: 5px solid #d1b8a1; /* ✅ 베이지 색상 테두리 */
+    box-shadow: 0 0 25px rgba(210, 184, 161, 0.8);
+}
+
+/* ✅ 질문 텍스트 */
+#question-text {
+    font-family: "Gowun Dodum", serif;
+    font-size: 1.8rem;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+/* ✅ 도형 버튼 공통 스타일 */
+.button-container {
+    display: flex;                /* ✅ 가로 정렬 */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;                    /* ✅ 버튼 간격 조정 */
+    margin-top: 20px;
+}
+
+/* ✅ 도형 버튼 공통 스타일 */
+button {
+    font-family: "Gowun Dodum", serif;
+    border-radius: 10px;  /* ✅ 부드러운 모서리 */
+    border: 5px solid #d1b8a1;  /* ✅ 부드러운 베이지 테두리 */
+    background: transparent;
+    width: 200px;  /* ✅ 고정 너비 */
+    height: 80px;  /* ✅ 고정 높이 */
+    color: #6f4f31;  /* ✅ 텍스트 색상 */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px; /* ✅ 버튼 간격 */
+}
+
+button:hover {
+    background: #f1d3b2;  /* ✅ 호버 시 파스텔 핑크 배경 */
+    border: 5px solid #d1b8a1;  /* ✅ 베이지 테두리 */
+    box-shadow: 0 0 15px rgba(210, 184, 161, 0.7); /* ✅ 부드러운 그림자 */
+}
+
+/* ✅ 선택된 버튼 (네온 그린 효과) */
+.answer-btn.selected {
+    font-family: "Gowun Dodum", serif;
+    border: 3px solid #be7b7d; /* ✅ 연분홍색 테두리 */
+    box-shadow: 0 0 30px rgba(190,123,125, 0.8); /* ✅ 부드러운 연분홍 그림자 */
+}
+
+/* ✅ 두 번째 동점 버튼 (스타일 다르게 적용) */
+.second-tie-btn {
+    padding: 10px;
+    border: 3px solid #f1c6a1; /* ✅ 부드러운 파스텔 핑크 테두리 */
+    background: #f1d3b2; /* ✅ 파스텔 핑크 배경 */
+    color: #6f4f31; /* ✅ 어두운 베이지 텍스트 */
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(241, 211, 178, 0.8); /* ✅ 부드러운 그림자 */
+    transition: all 0.3s ease-in-out;
+}
+
+/* ✅ 두 번째 동점 버튼 호버 효과 */
+.second-tie-btn:hover {
+    background: #fff8f1; /* ✅ 클릭 시 연한 크림색 배경 */
+    color: #f1c6a1; /* ✅ 텍스트 색상도 파스텔 핑크로 변경 */
+    border: 3px solid #f1c6a1; /* ✅ 파스텔 핑크 테두리 */
+    box-shadow: 0 0 25px rgba(241, 198, 161, 0.9); /* ✅ 부드러운 그림자 */
+}
+
+/* ✅ 빈 원이었던 것 (그렇다) */
+.circle {
+    background-color: #854442; /* ✅ '그렇다' */
+    color: #fff4e6;
+}
+
+/* ✅ 빈 삼각형이었던 것 (모른다) */
+.triangle {
+    background-color: #fff4e6; /* ✅ '보통' */
+}
+
+/* ✅ 빈 사각형이었던 것 (아니다) */
+.square {
+    background-color: #3c2f2f; /* ✅ '아니다' */
+    color: #fff4e6;
+}
+
+/* ✅ 진행바 */
+.progress-container {
+    width: 100%;
+    height: 25px;
+    border-radius: 15px;
+    border: 2px solid #f1c6a1; /* ✅ 부드러운 살구색 테두리 */
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(241, 198, 161, 0.8); /* ✅ 부드러운 그림자 */
+    overflow: hidden;
+    position: relative; /* ✅ 진행바 내부에서 텍스트 중앙 정렬 */
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #f1c6a1; /* ✅ 부드러운 살구색 배경 */
+    transition: width 0.5s;
+    box-shadow: 0 0 20px rgba(241, 198, 161, 1); /* ✅ 부드러운 그림자 */
+}
+
+/* ✅ 진행바 텍스트 */
+.progress-text {
+    color: #6f4f31; /* ✅ 어두운 베이지 텍스트 */
+    font-weight: bold;
+    position: absolute; /* ✅ 텍스트를 진행바 내부에서 절대 위치 */
+    width: 100%; /* ✅ 전체 너비 */
+    text-align: center; /* ✅ 수평 중앙 정렬 */
+    line-height: 25px; /* ✅ 수직 중앙 정렬 */
+    top: 0; /* ✅ 텍스트를 상단에 위치 */
+}
+
+/* ✅ 2단계 동점 발생 시 진행바 숨김 */
+#progress-bar.hidden, #progress-text.hidden {
+    display: none;
+}
+
+/* ✅ QR 코드 스타일 */
+#qr-code img {
+    display: block;
+    margin: 20px auto;
+    border: 5px solid white;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 1);
+    border-radius: 10px;
+}
+
+/* ✅ 슬라이드 전용 버튼 (중복 방지/크기 축소) */
+.slide-btn {
+    padding: 5px 15px; /* ✅ 버튼 크기 조정 (기존 10px → 5px) */
+    border: 2px solid #f1c6a1; /* ✅ 부드러운 파스텔 핑크 테두리 */
+    background: #f1d3b2; /* ✅ 파스텔 핑크 배경 */
+    color: #6f4f31; /* ✅ 어두운 베이지 텍스트 */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem; /* ✅ 글씨 크기 축소 */
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(241, 211, 178, 0.8); /* ✅ 부드러운 그림자 */
+    transition: all 0.3s ease-in-out;
+}
+
+.slide-btn:hover {
+    background: #fff8f1; /* ✅ 클릭 시 연한 크림색 배경 */
+    color: #f1c6a1; /* ✅ 텍스트 색상도 파스텔 핑크로 변경 */
+    border: 2px solid #f1c6a1; /* ✅ 파스텔 핑크 테두리 */
+    box-shadow: 0 0 25px rgba(241, 198, 161, 0.9); /* ✅ 부드러운 그림자 */
+}
+
+/* ✅ 모달 창 전체 중앙 정렬 (Flexbox 개선) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* ✅ 어두운 반투명 배경 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* ✅ 모달 콘텐츠 가운데 정렬 및 크기 조정 */
+.modal-content {
+    display: flex;              /* ✅ Flexbox 적용 */
+    flex-direction: column;     /* ✅ 세로 정렬 유지 */
+    align-items: center;        /* ✅ 수직 중앙 정렬 */
+    justify-content: center;    /* ✅ 수평 중앙 정렬 */
+    position: relative;
+    max-width: 90%;          
+    max-height: 90%;         
+    text-align: center;
+    background: #fff8f1; /* ✅ 연한 크림색 배경 */
+    border: 2px solid #d1b8a1;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(210, 184, 161, 0.8);
+}
+
+/* ✅ 버튼을 감싸는 컨테이너를 추가해 가로 정렬 */
+.button-container-horizontal {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* 버튼 사이 간격 */
+    margin-top: 10px;
+}
+
+/* ✅ 메인 버튼을 가운데 정렬하는 컨테이너 */
+.button-container-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* ✅ 모달 이미지 크기 자동 조정 */
+#modalImage {
+    max-width: 100%;         /* ✅ 화면에 맞게 조정 */
+    max-height: 70vh;        /* ✅ 뷰포트 높이에 맞게 조정 */
+    border-radius: 10px;
+}
+
+/* ✅ 닫기 버튼 스타일 */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 3rem;
+    color: #6f4f31;
+    cursor: pointer;
+}
+
+.footer {
+    padding: 5px 20px;
+    margin: 10px auto;  /* 중앙 정렬 (수평 방향) */
+    font-size: 18px;
+    cursor: pointer;
+    background: #ffeed8;
+    border: 5px solid white;
+    color: #fff;
+    transition: background 0.3s ease;
+    justify-content: center; /* 가로 정렬 */
+    text-align: center;
+    display: flex;
+    align-items: center; /* 세로 정렬 */
+    width: fit-content; /* 내용 크기에 맞게 자동 조정 */
+}
